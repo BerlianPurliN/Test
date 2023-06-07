@@ -28,7 +28,7 @@ if (isset($_POST['btn-login'])) {
         echo "<script>alert('Selamat datang $nama');
                 document.location.href = 'hlmn_makanan.php'</script>";
     } else {
-        echo "<script>alert('Username tidak teradaftar');
+        echo "<script>alert('Username / Password tidak teradaftar');
             document.location.href = 'login.php'</script>";
     }
 

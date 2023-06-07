@@ -66,6 +66,8 @@ tr:nth-child(even) {
   padding: 5px 10px;
   border-radius: 3px;
   color: #fff;
+  display: block; /* Menjadikan tombol sebagai blok elemen */
+  margin-bottom: 5px; /* Tambahkan margin bawah */
 }
 
 .delete-data {

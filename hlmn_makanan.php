@@ -55,7 +55,7 @@ $tk_makan = tampil("SELECT * FROM TK_makanan ORDER BY id_tk_mkan DESC");
                 </td>
                 <td>
                     <a href="delete_tk_mkan.php?deleteid_tk_mkan=<?= $id ?>"
-                        onclick="return confirm('Apakah data ingin di hapus?')" class="delete-data">Hapus</a>
+                        onclick="return confirm('Apakah data ingin di hapus?')" class="delete-data">Hapus</a><br>
                     <a href="ubah_tk_makan.php?ubahid_tk_mkan=<?= $id ?>" class="update-data">Ubah</a>
                 </td>
             </tr>
