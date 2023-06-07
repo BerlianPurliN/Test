@@ -1,18 +1,28 @@
-.kotak{
-    width: 400px;
-    min-height: 200px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    padding: 15px;
-    box-sizing: border-box;
-}
-.info{
+/* login.css */
+body {
+    background-color: #E97832;
+  }
+  
+  .kotak {
+    width: 360px;
+    height: 400px;
+    margin: 100px auto;
+    padding: 21px;
+    text-align: center;
+    background-color: #f1f1f1;
+    border-radius: 20px;
+    box-shadow: 0 5px 9px rgba(0, 0, 0, 0.2);
+  }
+  .info{
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
     line-height: 15px;
+    text-align: left;
+    /* or 75% */
     color: #FF731D;
+    text-shadow: 0px 3px 5px #E18519;
 }
 .selamat{
     font-family: 'Montserrat';
@@ -20,13 +30,34 @@
     font-weight: 700;
     font-size: 32px;
     line-height: 32px;
-    text-transform: uppercase;
     color: #E18519;
 }
-label[for=email]{
-    font-family: 'Rubik';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 15px;
-}
+  
+  .login label {
+    display: block;
+    text-align: left;
+    margin-bottom: 3px;
+  }
+  
+  .login input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+  }
+  
+  .login button {
+    width: 100%;
+    padding: 10px;
+    background-color: #66cdaa;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .login button:hover {
+    opacity: 0.8;
+  }
+  

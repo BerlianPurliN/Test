@@ -1,8 +1,7 @@
 <?php
 require "db.php";
 
-$tk_makan = tampil("SELECT * FROM TK_makanan ORDER BY id_tk_mkan DESC");
-
+$prodk_makan = tampil("SELECT * FROM produk_makanan ORDER BY id_tk_mkan DESC");
 
 ?>
 
@@ -10,57 +9,56 @@ $tk_makan = tampil("SELECT * FROM TK_makanan ORDER BY id_tk_mkan DESC");
 <head>
     <link rel="stylesheet" href="makan.css">
 </head>
+
 <body>
     <header class="site-header">
+    <nav class="site-navigation">
+            <ul class="nav">
+                <li><a href="hlmn_makanan.php">Kembali</a></li>
+            </ul>
+    </nav>
         <div class="site-identity">
             <h3 class="info">InfoSiDarjo</h3>
-        </div>
-        <nav class="site-navigation">
+            <nav class="site-navigation">
             <ul class="nav">
-                <li><a href="hlmn_pakaian.php">Pakaian</a></li>
             </ul>
-        </nav>
+        </div>
     </header>
-    <h1> Tabel Toko Makanan </h1>
-    <div class="container">
+    <h1> Tabel Produk Makanan </h1>
     <form action="" method="post" hidden>
         <input type="text" name="keyword" autocomplete="off" autofocus size="50">
         <button type="submit" name="Cari">Cari</button>
     </form><br>
-    <a href="tambahM.php">Tambah Data</a>
+    <a href="tambahPM.php">Tambah Data</a>
     <table border="1" cellspacing="0" cellpading="3">
         <tr>
             <th>No</th>
-            <th>Nama Toko</th>
-            <th>Alamat Toko</th>
-            <th>Deskripsi Toko</th>
-            <th>Hapus/Ubah</th>
+            <th>Menu Makanan</th>
+            <th>Harga</th>
         </tr>
         <?php $no = 1; ?>
-        <?php foreach ($tk_makan as $tk_mkn):
-            $id = $tk_mkn["id_tk_mkan"];
+        <?php foreach ($prodk_makan as $prduk_mkn):
+            $id =  $prdk_mkn["id_prdk_mkan"];
             ?>
             <tr>
                 <td>
                     <?= $no++; ?>
                 </td>
                 <td>
-                    <a href="produkM.php"><?= $tk_mkn["nama_tk_mkan"]; ?></a>
+                    <?= $prdk_mkn["nama_prdk_mkan"]; ?></a>
                 </td>
                 <td>
-                    <?= $tk_mkn["alamat_tk_mkan"]; ?>
+                    <?= $prdk_mkn["id_tk_mkan"]; ?></a>
                 </td>
                 <td>
-                    <?= $tk_mkn["desk_tk_mkan"]; ?>
+                    <?= $prdk_mkn["harga_prdk_mkan"]; ?>
                 </td>
-                <td>
-                    <a href="delete_tk_mkan.php?deleteid_tk_mkan=<?= $id ?>"
+                    <a href="delete_prdk_mkan.php?deleteid_prdk_mkan=<?= $id ?>"
                         onclick="return confirm('Apakah data ingin di hapus?')" class="delete-data">Hapus</a>
-                    <a href="ubah_tk_makan.php?ubahid_tk_mkan=<?= $id ?>" class="update-data">Ubah</a>
+                    <a href="ubah_prdk_makan.php?ubahid_prdk_mkan=<?= $id ?>" class="update-data">Ubah</a>
                 </td>
             </tr>
-        <?php endforeach; ?>
+        <?php endforeach;
+        ?>
     </table>
 </body>
-
-</html>

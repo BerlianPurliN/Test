@@ -1,33 +1,116 @@
 .info{
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 15px;
-    color: #FF731D;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 15px;
+  color: #FF731D;
 
-    line-height: 15px;
-    text-shadow: 0px 3px 5px #E18519;
+  line-height: 15px;
+  text-shadow: 0px 3px 5px #E18519;
 }
 .site-header { 
-    border-bottom: 1px solid #ccc;
-    padding: .5em 1em;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .site-identity h1 {
-    font-size: 1.5em;
-    margin: .6em 0;
-    display: inline-block;
-  }
-  .site-navigation ul, 
-  .site-navigation li {
-    margin: 0; 
-    padding: 0;
-  }
-  
-  .site-navigation li {
-    display: inline-block;
-    margin: 1.4em 1em 1em 1em;
-  }
+  border-bottom: 1px solid #ccc;
+  padding: .5em 1em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.site-identity h1 {
+  font-size: 1.5em;
+  margin: .6em 0;
+  display: inline-block;
+}
+.site-navigation ul, 
+.site-navigation li {
+  margin: 0; 
+  padding: 0;
+}
+
+.site-navigation li {
+  display: inline-block;
+  margin: 1.4em 1em 1em 1em;
+}
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+.table-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.delete-data, .update-data {
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  color: #fff;
+}
+
+.delete-data {
+  background-color: #ff6961;
+}
+
+.update-data {
+  background-color: #66cdaa;
+}
+
+.delete-data:hover, .update-data:hover {
+  opacity: 0.8;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.store-box {
+  width: calc(33.33% - 20px);
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.store-box h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.store-box p {
+  margin-bottom: 10px;
+}
+
+.store-box a {
+  text-decoration: none;
+  background-color: #66cdaa;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+.store-box a:hover {
+  opacity: 0.8;
+}
