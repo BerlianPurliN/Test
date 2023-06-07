@@ -1,13 +1,22 @@
 <?php
-require "function.php";
+require "db.php";
 
-if(isset($_POST["tambah"])){
-    if(tambahData($_POST) > 0){
-        echo "Tambah data berhasil";
-    }else{
-        echo "Gagal menambahkan";
+if(isset($_POST["tambah"])) {
+    $nama       = $_POST['nama'];
+    $alamat     = $_POST['alamat'];
+    $deskripsi  = $_POST['deskripsi'];
+
+    if($nama && $alamat && $deskripsi) {
+        $sql1 = "INSERT INTO TK_makanan (nama, alamat, deskripsi) VALUES ('$nama', '$alamat', '$deskripsi')";
+        $q1 = mysqli_query($conn,$sql1);
+        if($q1){
+            $sukses     = "Tambah data berhasil";
+        } else {
+            $error      = "Gagal menambahkan data";
+        }
     }
 }
+
 ?>
 
 <html>
