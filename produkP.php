@@ -1,7 +1,7 @@
 <?php
 require "db.php";
 
-$prodk_pakaian = tampil("SELECT * FROM produk_pakaian ORDER BY id_prdk_pkan DESC");
+$prodk_makan = tampil("SELECT * FROM produk_pakaian ORDER BY id_tk_pkan DESC");
 
 ?>
 
@@ -12,45 +12,49 @@ $prodk_pakaian = tampil("SELECT * FROM produk_pakaian ORDER BY id_prdk_pkan DESC
 
 <body>
     <header class="site-header">
+    <nav class="site-navigation">
+            <ul class="nav">
+                <li><a href="hlmn_pakaian.php">Kembali</a></li>
+            </ul>
+    </nav>
         <div class="site-identity">
             <h3 class="info">InfoSiDarjo</h3>
             <nav class="site-navigation">
             <ul class="nav">
-            <a href="tambahPP.php">Tambah Data</a>
             </ul>
-        </nav>
         </div>
     </header>
     <h1> Tabel Produk Pakaian </h1>
-    <form action="" method="post" hidden>
-        <input type="text" name="keyword" autocomplete="off" autofocus size="50">
-        <button type="submit" name="Cari">Cari</button>
-    </form><br>
+    <a href="tambahPM.php">Tambah Data</a>
     <table border="1" cellspacing="0" cellpading="3">
         <tr>
             <th>No</th>
-            <th>Daftar Pakaian</th>
+            <th>Menu Makanan</th>
             <th>Harga</th>
         </tr>
         <?php $no = 1; ?>
-        <?php foreach ($prodk_pakaian as $prduk_pkn):
-            $id =  $prdk_pkn["id_prdk_pkan"];
+        <?php foreach ($prodk_makan as $prduk_mkn):
+            $id =  $prdk_mkn["id_prdk_mkan"];
             ?>
             <tr>
                 <td>
                     <?= $no++; ?>
                 </td>
                 <td>
-                    <?= $prdk_pkn["nama_prdk_pkan"]; ?></a>
+                    <?= $prdk_mkn["nama_prdk_mkan"]; ?></a>
                 </td>
                 <td>
-                    <?= $prdk_pkn["harga_prdk_pkan"]; ?>
+                    <?= $prdk_mkn["id_tk_mkan"]; ?></a>
                 </td>
-                    <a href="delete_prdk_pkan.php?deleteid_prdk_pkan=<?= $id ?>"
+                <td>
+                    <?= $prdk_mkn["harga_prdk_mkan"]; ?>
+                </td>
+                    <a href="delete_prdk_mkan.php?deleteid_prdk_mkan=<?= $id ?>"
                         onclick="return confirm('Apakah data ingin di hapus?')" class="delete-data">Hapus</a>
-                    <a href="ubah_prdk_pakaian.php?ubahid_prdk_pkan=<?= $id ?>" class="update-data">Ubah</a>
+                    <a href="ubah_prdk_makan.php?ubahid_prdk_mkan=<?= $id ?>" class="update-data">Ubah</a>
                 </td>
             </tr>
-        <?php endforeach; ?>
+        <?php endforeach;
+        ?>
     </table>
 </body>

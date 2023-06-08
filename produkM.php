@@ -1,7 +1,7 @@
 <?php
 require "db.php";
 
-$prodk_makan = tampil("SELECT * FROM produk_makanan ORDER BY id_tk_mkan DESC");
+$prodk_pakan = tampil("SELECT * FROM produk_makanan ORDER BY id_tk_mkan DESC");
 
 ?>
 
@@ -25,37 +25,33 @@ $prodk_makan = tampil("SELECT * FROM produk_makanan ORDER BY id_tk_mkan DESC");
         </div>
     </header>
     <h1> Tabel Produk Makanan </h1>
-    <form action="" method="post" hidden>
-        <input type="text" name="keyword" autocomplete="off" autofocus size="50">
-        <button type="submit" name="Cari">Cari</button>
-    </form><br>
-    <a href="tambahPM.php">Tambah Data</a>
+    <a href="tambahPP.php">Tambah Data</a>
     <table border="1" cellspacing="0" cellpading="3">
         <tr>
             <th>No</th>
-            <th>Menu Makanan</th>
+            <th>Produk</th>
             <th>Harga</th>
         </tr>
         <?php $no = 1; ?>
-        <?php foreach ($prodk_makan as $prduk_mkn):
-            $id =  $prdk_mkn["id_prdk_mkan"];
+        <?php foreach ($prodk_pakan as $prduk_pkn):
+            $id =  $prdk_pkn["id_prdk_pkan"];
             ?>
             <tr>
                 <td>
                     <?= $no++; ?>
                 </td>
                 <td>
-                    <?= $prdk_mkn["nama_prdk_mkan"]; ?></a>
+                    <?= $prdk_pkn["nama_prdk_pkan"]; ?></a>
                 </td>
                 <td>
-                    <?= $prdk_mkn["id_tk_mkan"]; ?></a>
+                    <?= $prdk_pkn["id_tk_pkan"]; ?></a>
                 </td>
                 <td>
-                    <?= $prdk_mkn["harga_prdk_mkan"]; ?>
+                    <?= $prdk_pkn["harga_prdk_pkan"]; ?>
                 </td>
-                    <a href="delete_prdk_mkan.php?deleteid_prdk_mkan=<?= $id ?>"
+                    <a href="delete_prdk_pkan.php?deleteid_prdk_pkan=<?= $id ?>"
                         onclick="return confirm('Apakah data ingin di hapus?')" class="delete-data">Hapus</a>
-                    <a href="ubah_prdk_makan.php?ubahid_prdk_mkan=<?= $id ?>" class="update-data">Ubah</a>
+                    <a href="ubah_prdk_pakaian.php?ubahid_prdk_pkan=<?= $id ?>" class="update-data">Ubah</a>
                 </td>
             </tr>
         <?php endforeach;
