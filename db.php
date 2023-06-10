@@ -1,11 +1,14 @@
 <?php
 $server = "localhost";
+$port = 3306;
 $user = "root";
 $pass = "";
 $nama_db = "InfoSiDarjo";
 
-$conn = mysqli_connect($server, $user, $pass, $nama_db) or die(mysqli_error($conn));
-
+$conn = mysqli_connect($server, $user, $pass, $nama_db, $port) or die(mysqli_error($conn));
+if ($conn->connect_error) {
+    die("Koneksi ke database gagal: " . $conn->connect_error);
+}
 function tampil($query)
 {
     global $conn;
@@ -61,6 +64,37 @@ function ubahDataTP($data, $id) {
     $desk = $data ["deskripsi"];
 
     mysqli_query($conn, " UPDATE TK_pakaian SET nama_tk_pkan = '$nama', alamat_tk_pkan = '$alamat', desk_tk_pkan = '$desk' WHERE id_tk_pkan = '$id'");
+
+    return mysqli_affected_rows($conn);
+}
+function ubahDataPP($data, $id) {
+    global $conn ;
+    $nama = $data ["nama"];
+    $harga = $data ["harga"];
+
+    mysqli_query($conn, "UPDATE produk_pakaian SET nama_prdk_pkan = '$nama', harga_prdk_pkan = '$harga' WHERE id_prdk_pkan = '$id'");
+
+    return mysqli_affected_rows($conn);
+}
+
+function ubahDataPM($data, $id) {
+    global $conn ;
+    $nama = $data ["nama"];
+    $harga = $data ["harga"];
+
+    mysqli_query($conn, "UPDATE produk_makanan SET nama_prdk_mkan = '$nama', harga_prdk_mkan = '$harga' WHERE id_prdk_mkan = '$id'");
+
+    return mysqli_affected_rows($conn);
+}
+
+function tambahDataPM($data)
+{
+    global $conn;
+    $nama = $data["nama"];
+    $harga = $data["harga"];
+    $id_tk_mkan = $data["id_tk_mkan"];
+
+    mysqli_query($conn, "INSERT INTO produk_makanan VALUES ('', '$id_tk_mkan', '$nama', '$harga')");
 
     return mysqli_affected_rows($conn);
 }

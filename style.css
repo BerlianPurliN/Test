@@ -116,3 +116,27 @@ tr:nth-child(even) {
 .store-box a:hover {
   opacity: 0.8;
 }
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.merah {
+  background-color: red;
+}
+
+.biru {
+  background-color: #4285f4;
+}
+
+.hijau {
+  background-color: #66cdaa;
+}
+
+.tabel {
+  text-align: center;
+}

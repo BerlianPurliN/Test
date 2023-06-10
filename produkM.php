@@ -1,31 +1,29 @@
 <?php
 require "db.php";
 
-$prodk_pakan = tampil("SELECT * FROM produk_makanan ORDER BY id_tk_mkan DESC");
-
+$prodk_makan = tampil("SELECT produk_makanan.id_prdk_mkan, TK_makanan.id_tk_mkan, produk_makanan.nama_prdk_mkan, produk_makanan.harga_prdk_mkan FROM produk_makanan INNER JOIN TK_makanan ON TK_makanan.id_tk_mkan = produk_makanan.id_tk_mkan ORDER BY produk_makanan.id_prdk_mkan DESC");
+// $id_tk_mkan = $_GET['id_tk_mkan'];
+// $prodk_makan = tampil("SELECT * FROM produk_makanan WHERE id_tk_mkan = $id_tk_mkan");
 ?>
 
 <html>
 <head>
-    <link rel="stylesheet" href="makan.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <header class="site-header">
-    <nav class="site-navigation">
-            <ul class="nav">
-                <li><a href="hlmn_makanan.php">Kembali</a></li>
-            </ul>
-    </nav>
         <div class="site-identity">
+        <ul class="nav">
             <h3 class="info">InfoSiDarjo</h3>
             <nav class="site-navigation">
-            <ul class="nav">
-            </ul>
+            <li><a href="hlmn_makanan.php" class="button biru">Kembali</a></li>
+        </ul>
         </div>
     </header>
     <h1> Tabel Produk Makanan </h1>
-    <a href="tambahPP.php">Tambah Data</a>
+    <h3> Nama toko </h3>
+    <a href="tambahPM.php" class="button biru">Tambah Data</a><br>
     <table border="1" cellspacing="0" cellpading="3">
         <tr>
             <th>No</th>
@@ -33,28 +31,26 @@ $prodk_pakan = tampil("SELECT * FROM produk_makanan ORDER BY id_tk_mkan DESC");
             <th>Harga</th>
         </tr>
         <?php $no = 1; ?>
-        <?php foreach ($prodk_pakan as $prduk_pkn):
-            $id =  $prdk_pkn["id_prdk_pkan"];
+        <?php foreach ($prodk_makan as $prdk_mkn):
+            $id = $prdk_mkn["id_prdk_mkan"];
             ?>
             <tr>
                 <td>
                     <?= $no++; ?>
                 </td>
                 <td>
-                    <?= $prdk_pkn["nama_prdk_pkan"]; ?></a>
+                    <?= $prdk_mkn["nama_prdk_mkan"]; ?>
                 </td>
                 <td>
-                    <?= $prdk_pkn["id_tk_pkan"]; ?></a>
+                    <?= $prdk_mkn["harga_prdk_mkan"]; ?>
                 </td>
                 <td>
-                    <?= $prdk_pkn["harga_prdk_pkan"]; ?>
-                </td>
-                    <a href="delete_prdk_pkan.php?deleteid_prdk_pkan=<?= $id ?>"
-                        onclick="return confirm('Apakah data ingin di hapus?')" class="delete-data">Hapus</a>
-                    <a href="ubah_prdk_pakaian.php?ubahid_prdk_pkan=<?= $id ?>" class="update-data">Ubah</a>
+                    <a href="delete_prdk_mkan.php?deleteid_prdk_mkan=<?= $id ?>" onclick="return confirm('Apakah data ingin dihapus?')" class="delete-data">Hapus</a>
+                    <a href="ubah_prdk_makan.php?ubahid_prdk_mkan=<?= $id ?>" class="update-data">Ubah</a>
                 </td>
             </tr>
         <?php endforeach;
         ?>
     </table>
 </body>
+</html>

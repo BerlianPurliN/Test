@@ -8,7 +8,7 @@ $tk_makan = tampil("SELECT * FROM TK_makanan ORDER BY id_tk_mkan DESC");
 
 <html>
 <head>
-    <link rel="stylesheet" href="makan.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="site-header">
@@ -17,7 +17,8 @@ $tk_makan = tampil("SELECT * FROM TK_makanan ORDER BY id_tk_mkan DESC");
         </div>
         <nav class="site-navigation">
             <ul class="nav">
-                <li><a href="hlmn_pakaian.php">Pakaian</a></li>
+                <li><a href="hlmn_pakaian.php" class="button hijau">Pakaian</a></li>
+                <li><a href="cek_logout_admin.php" class="button merah">Logout</a></li>
             </ul>
         </nav>
     </header>
@@ -27,7 +28,7 @@ $tk_makan = tampil("SELECT * FROM TK_makanan ORDER BY id_tk_mkan DESC");
         <input type="text" name="keyword" autocomplete="off" autofocus size="50">
         <button type="submit" name="Cari">Cari</button>
     </form><br>
-    <a href="tambahM.php">Tambah Data</a>
+    <a href="tambahM.php" class="button biru">Tambah Data</a>
     <table border="1" cellspacing="0" cellpading="3">
         <tr>
             <th>No</th>
@@ -45,7 +46,7 @@ $tk_makan = tampil("SELECT * FROM TK_makanan ORDER BY id_tk_mkan DESC");
                     <?= $no++; ?>
                 </td>
                 <td>
-                    <a href="produkM.php"><?= $tk_mkn["nama_tk_mkan"]; ?></a>
+                    <a href="produkM.php?id_tk_mkan=<?php echo $id ?>"><?= $tk_mkn["nama_tk_mkan"]; ?></a>
                 </td>
                 <td>
                     <?= $tk_mkn["alamat_tk_mkan"]; ?>
@@ -54,9 +55,9 @@ $tk_makan = tampil("SELECT * FROM TK_makanan ORDER BY id_tk_mkan DESC");
                     <?= $tk_mkn["desk_tk_mkan"]; ?>
                 </td>
                 <td>
-                    <a href="delete_tk_mkan.php?deleteid_tk_mkan=<?= $id ?>"
-                        onclick="return confirm('Apakah data ingin di hapus?')" class="delete-data">Hapus</a><br>
-                    <a href="ubah_tk_makan.php?ubahid_tk_mkan=<?= $id ?>" class="update-data">Ubah</a>
+                <a href="delete_tk_mkan.php?deleteid_tk_mkan=<?= $id ?>"
+                        onclick="return confirm('Apakah data ingin di hapus?')" class="delete-data">Hapus</a>
+                    <a href="ubah_tk_pakaian.php?ubahid_tk_pkan=<?= $id ?>" class="update-data">Ubah</a>
                 </td>
             </tr>
         <?php endforeach; ?>

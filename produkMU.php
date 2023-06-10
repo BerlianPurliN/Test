@@ -1,7 +1,7 @@
 <?php
 require "db.php";
 
-$prodk_makan = tampil("SELECT * FROM produk_pakaian ORDER BY id_tk_pkan DESC");
+$prodk_makan = tampil("SELECT * FROM produk_makanan ORDER BY id_tk_mkan DESC");
 
 ?>
 
@@ -14,7 +14,7 @@ $prodk_makan = tampil("SELECT * FROM produk_pakaian ORDER BY id_tk_pkan DESC");
     <header class="site-header">
     <nav class="site-navigation">
             <ul class="nav">
-                <li><a href="hlmn_pakaian.php" class="button biru">Kembali</a></li>
+                <li><a href="hlmn_pakaianU.php" class="button biru">Kembali</a></li>
             </ul>
     </nav>
         <div class="site-identity">
@@ -24,8 +24,7 @@ $prodk_makan = tampil("SELECT * FROM produk_pakaian ORDER BY id_tk_pkan DESC");
             </ul>
         </div>
     </header>
-    <h1 class="tabel"> Tabel Produk Pakaian </h1>
-    <a href="tambahPP.php" class="button biru">Tambah Data</a>
+    <h1 class"tabel"> Tabel Produk Pakaian </h1>
     <table border="1" cellspacing="0" cellpading="3">
         <tr>
             <th>No</th>
@@ -44,12 +43,10 @@ $prodk_makan = tampil("SELECT * FROM produk_pakaian ORDER BY id_tk_pkan DESC");
                     <?= $prdk_mkn["nama_prdk_mkan"]; ?></a>
                 </td>
                 <td>
+                    <?= $prdk_mkn["id_tk_mkan"]; ?></a>
+                </td>
+                <td>
                     <?= $prdk_mkn["harga_prdk_mkan"]; ?>
-                </td>
-                    <a href="delete_prdk_mkan.php?deleteid_prdk_mkan=<?= $id ?>"
-                        onclick="return confirm('Apakah data ingin di hapus?')" class="delete-data">Hapus</a>
-                    <a href="ubah_prdk_makan.php?ubahid_prdk_mkan=<?= $id ?>" class="update-data">Ubah</a>
-                </td>
             </tr>
         <?php endforeach;
         ?>

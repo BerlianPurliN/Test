@@ -18,13 +18,15 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Tambah data produk makanan</title>
+        <title>Tambah data makanan</title>
+        <link rel="stylesheet" href="tambah.css">
     </head>
     <body>
-    <h1>Tambah data produk</h1>
-    <form action="" method="post" enctype="multipart/form-data">
-    <label for="TK_makanan">id toko / Nama toko : </label>
-            <select name="TK_makanan" id="TK_makanan">
+    <h1>Tambah data produk makanan</h1>
+    <a href="produkM.php" class="button">Kembali</a>
+    <form id="kotak"action="" method="post">
+        <label for="TK_makanan">Id Toko / Nama Toko : </label>
+            <select name="id_tk_mkan" id="">
                 <?php
                 $sql = "SELECT * FROM TK_makanan where 1";
                 $result = mysqli_query($conn, $sql);
@@ -32,11 +34,11 @@
                     <option value="<?php echo $data['id_tk_mkan'] ?>"><?php echo $data['nama_tk_mkan'] ?></option>
                 <?php endwhile; ?>
             </select><br>
-        <label for="nama">Nama Menu : </label>
-        <input type="text" name="nama" id="nama" autocomplete="off" placeholder="Masukkan Nama Menu..."><br>
+        <label for="nama">Nama Produk : </label>
+        <input type="text" id="nama" name="nama" autocomplete="off" placeholder="Masukkan Nama..."><br>
         <label for="harga">Masukkan Harga : </label>
-        <input type="text" name="harga" id="harga" autocomplete="off" placeholder="Masukkan Harga..."><br>
-        <button type="submit" name="tambah">Submit</button>
+        <input type="text" id="alamat" name="harga" autocomplete="off" placeholder="Masukkan Harga..."><br>
+        <input type="submit" name="tambah" />
     </form>
 </body>
 </html>

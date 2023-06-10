@@ -18,7 +18,7 @@ if (isset($_POST['btn-login'])) {
         $_SESSION['password_pengguna'] = $return['password_pengguna'];
         
         echo "<script>alert('Selamat datang $nama');
-                document.location.href = 'hlmn_makanan.php'</script>";
+                document.location.href = 'hlmn_makananU.php'</script>";
     }
     elseif ($return_admin) {
         $_SESSION['id_admin'] = $return['id_admin'];
